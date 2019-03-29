@@ -4,6 +4,7 @@ import users from '@/components/User/users'
 import create from '@/components/User/create'
 import EditUser from '@/components/User/EditUser'
 import show from '@/components/User/show'
+import Login from '@/components/Login'
 
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ export default new Router({
       path: '/user/:userId',
       name: 'showuser',
       component: show
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })
