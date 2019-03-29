@@ -49,11 +49,14 @@ function jwtSignUser (user) {
           }
           
           const userJSON = user.toJSON()
-          
+
+
            res.send({
-              user: userJSON,
-              token: jwtSignUser(userJSON)
-          })
+             user: userJSON,
+             token: jwtSignUser(userJSON)
+           })
+           
+           
 
         }catch (error) {
             res.status(500).send({

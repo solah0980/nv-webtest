@@ -19,17 +19,17 @@ export default {
     },
 
     methods:{
-        async onLogin(){
-            try{
-            const response = await AuthenServices.login({
-                email: this.email,
-                password: this.password
-            })
-            
-            this.$store.dispatch('setToken', response.data.token)
-            this.$store.dispatch('setUser', response.data.user)
+        async onLogin () {
+      try {
+        const response = await AuthenService.login({
+          email: this.email,
+          password: this.password
+        })
+        
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
 
-            console.log(response)
+        console.log(response)
         }catch (error){
             console.log(error)
         }
