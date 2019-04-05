@@ -24,8 +24,8 @@ function jwtSignUser (user) {
         })
       }
     },
-    async login (req, res) {
-        try {
+    async login (req, res) { 
+      try {
           const {email, password} = req.body
           const user = await User.findOne({
             where: {
@@ -47,10 +47,9 @@ function jwtSignUser (user) {
               error: 'User/Password not correct'
             })
           }
-          
+
           const userJSON = user.toJSON()
-
-
+          
            res.send({
              user: userJSON,
              token: jwtSignUser(userJSON)

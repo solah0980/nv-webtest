@@ -49,8 +49,7 @@ export default {
 
         async refreshData(){
             this.users = (await UserService.index()).data
-        }
-
+        },
 
     }
 }
