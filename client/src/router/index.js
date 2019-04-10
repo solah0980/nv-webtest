@@ -18,7 +18,7 @@ import BlogShow from '@/components/Blogs/ShowBlog'
 import Comment from '@/components/Comments/Index'
 
 //upload
-import upload from '@/components/Utils/upload'
+import upload from '@/components/Utils/Upload'
 
 
 Vue.use(Router)
