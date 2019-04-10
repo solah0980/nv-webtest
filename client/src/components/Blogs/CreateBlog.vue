@@ -110,27 +110,25 @@ export default {
         this.currentStatus = STATUS_SAVING
         await UploadService.upload(formData)
         this.currentStatus = STATUS_SUCCESS
+        // update image uploaded display
         let pictureJSON = []
-        this.uploadedFileNames.forEach(uploadFileName => {
-            let found = false
-            for(let i=0; i<this.pictures.length; i++){
-                if(this.pictures[i]===uploadFieldName){
-                    found = true
-                    break
-                }
-                if(!found){
-                    this.pictureIndex++
-                    let picturesJSON = {
-                        id: this.pictureIndex,
-                        name: uploadFileName
-                    }
-                  this.pictures.push(pictureJSON)  
-                }
-                
+        this.uploadedFileNames.forEach(uploadFilename => {
+          let found = false;
+          for(let i=0;i<this.pictures.length;i++){
+            if(this.pictures[i].name == uploadFilename){            
+              found = true            
+              break
+            }            
+          }
+          if(!found){
+            this.pictureIndex++
+            let pictureJSON = {
+              id: this.pictureIndex,
+              name: uploadFilename
             }
+            this.pictures.push(pictureJSON) 
+          }  
         })
-
-        this.clearUploadResult()
       } catch (error) {
         console.log(error)
         this.currentStatus = STATUS_FAILED
